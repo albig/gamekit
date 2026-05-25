@@ -11,17 +11,17 @@ Erstelle ein Spiel bei dem es das Ziel ist, so viel Pizza wie möglich zu essen 
 
 ## {Step 2}
 
-**Set the background color**
+**Hintergrundfarbe setzen**
 
 ---
 
-- :tree: Open the <br/>
-``||scene:Scene||``<br/>
-toolbox drawer and drag <br/>
-``||scene:set background color [ ]||`` <br/>
-into **the empty** ``||loops(noclick):on start||`` container already in your workspace. 
+- :tree: Öffne das <br/>
+``||scene:Szene||``<br/>
+Werkzeug und ziehe <br/>
+``||scene:setze Hintergrundfarbe auf [ ]||`` <br/>
+in die **leere** ``||loops(noclick):beim Start||`` Klammer, die bereits auf deinem Arbeitsbereich ist.
 
-~hint What does that mean? 🤷🏽
+~hint Was bedeutet das? 🤷🏽
 
 ---
 
