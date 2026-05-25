@@ -1,12 +1,12 @@
-# Jag die Pizza
+# Iss Pizza!
+
 ### @explicitHints true
 
-## Introduction @showdialog
+## Einführung @showdialog
 
 ![Game animation](/static/tutorials/chase-the-pizza/chasing.gif)
 
-Create a game where the goal is to eat as much pizza as you can 
-before the time runs out! 
+Erstelle ein Spiel bei dem es das Ziel ist, so viel Pizza wie möglich zu essen bevor die Zeit abgelaufen ist.
 
 
 ## {Step 2}
