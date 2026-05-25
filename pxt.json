@@ -1,0 +1,20 @@
+{
+    "name": "albig MakeCode Arcades Tutorials",
+    "version": "1.2.3",
+    "description": "",
+    "license": "MIT",
+    "dependencies": {
+        "device": "*"
+    },
+    "files": [
+        "rockscout.md",
+        "pizza.md",
+        "coins"
+    ],
+    "testFiles": [],
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj"
+}
+
