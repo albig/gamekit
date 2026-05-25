@@ -1,24 +1,95 @@
+# Fang die Münzen!
 
-> Diese Seite bei [https://albig.github.io/gamekit/](https://albig.github.io/gamekit/) öffnen
+## Schritt 1: Spieler erstellen
 
-## Als Erweiterung verwenden
+Erstelle zuerst deinen Spieler.
 
-Dieses Repository kann als **Erweiterung** in MakeCode hinzugefügt werden.
+Ziehe einen `set mySprite to sprite` Block in `on start`.
 
-* öffne [https://arcade.makecode.com/](https://arcade.makecode.com/)
-* klicke auf **Neues Projekt**
-* klicke auf **Erweiterungen** unter dem Zahnrad-Menü
-* nach **https://github.com/albig/gamekit** suchen und importieren
+Wähle ein Bild für deine Figur aus.
 
-## Dieses Projekt bearbeiten
+```blocks
+let spieler = sprites.create(img`
+    . . 5 5 5 . .
+    . 5 5 5 5 5 .
+    5 5 5 5 5 5 5
+    5 5 f 5 f 5 5
+    5 5 5 5 5 5 5
+    . 5 5 5 5 5 .
+    . . 5 5 5 . .
+`, SpriteKind.Player)
+```
 
-Um dieses Repository in MakeCode zu bearbeiten.
+---
 
-* öffne [https://arcade.makecode.com/](https://arcade.makecode.com/)
-* klicke auf **Importieren** und dann auf **Importiere URL**
-* füge **https://github.com/albig/gamekit** ein und klicke auf Importieren
+## Schritt 2: Bewegung hinzufügen
 
-#### Metadaten (verwendet für Suche, Rendering)
+Jetzt soll sich die Figur bewegen können.
 
-* for PXT/arcade
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+Füge den Block `move sprite with buttons` hinzu.
+
+```blocks
+controller.moveSprite(spieler, 100, 100)
+```
+
+---
+
+## Schritt 3: Hintergrund festlegen
+
+Setze eine Hintergrundfarbe.
+
+```blocks
+scene.setBackgroundColor(9)
+```
+
+---
+
+## Schritt 4: Münze erstellen
+
+Jetzt erstellen wir eine Münze.
+
+```blocks
+let muenze = sprites.create(img`
+    . . 2 2 2 . .
+    . 2 2 2 2 2 .
+    2 2 2 2 2 2 2
+    2 2 2 2 2 2 2
+    2 2 2 2 2 2 2
+    . 2 2 2 2 2 .
+    . . 2 2 2 . .
+`, SpriteKind.Food)
+
+muenze.setPosition(80, 60)
+```
+
+---
+
+## Schritt 5: Punkte sammeln
+
+Wenn der Spieler die Münze berührt,
+gibt es einen Punkt.
+
+```blocks
+info.setScore(0)
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (spieler, muenze) {
+    info.changeScoreBy(1)
+
+    muenze.setPosition(
+        randint(10, 150),
+        randint(10, 110)
+    )
+})
+```
+
+---
+
+## Schritt 6: Spiel starten
+
+Teste jetzt dein Spiel!
+
+Bewege deine Figur und sammle Punkte.
+
+# Fertig!
+
+Du hast dein erstes Arcade-Spiel gebaut 🎉
