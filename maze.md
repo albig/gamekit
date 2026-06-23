@@ -14,7 +14,7 @@ Willkommen bei @boardname@! Lass uns beginnen, indem wir ein Spiel erstellen, in
 
 ## {Schritt 1}
 
-Zuerst erstellen wir unseren Spieler. Suche ``||variables(sprites):set mySprite to||`` in ``||sprites:Sprites||``. Ziehe es in den Block ``||loops:on start||``.
+Zuerst erstellen wir unseren Spieler. Suche ``||variables(sprites):setze mySprite auf||`` in ``||sprites:Sprites||``. Ziehe es in den Block ``||loops:beim Start||``.
 
 ```blocks
 let mySprite: Sprite = sprites.create(img`
@@ -39,7 +39,7 @@ let mySprite: Sprite = sprites.create(img`
 
 ## {Schritt 2 @fullscreen}
 
-Klicke auf das graue Feld in ``||variables(sprites):set mySprite to||`` und zeichne das Bild deines Spielers. Es kann alles sein: ein einfacher Block oder eine Figur.
+Klicke auf das graue Feld in ``||variables(sprites):setze mySprite auf||`` und zeichne das Bild deines Spielers. Es kann alles sein: ein einfacher Block oder eine Figur.
 
 ![Draw a figure for the sprite](/static/tutorials/maze/draw-sprite-figure.gif)
 
@@ -65,7 +65,7 @@ let mySprite: Sprite = sprites.create(img`
 
 ## {Schritt 3}
 
-Jetzt bringen wir unsere Sprite-Figur mit den Pfeiltasten des Controllers zum Bewegen. Hole dir einen Block ``||controller:move mySprite with buttons||`` aus ``||controller:Controller||`` und platziere ihn unter ``||variables(sprites):set mySprite to||``.
+Jetzt bringen wir unsere Sprite-Figur mit den Pfeiltasten des Controllers zum Bewegen. Hole dir einen Block ``||controller:bewege mySprite mit Knöpfen||`` aus ``||controller:Controller||`` und platziere ihn unter ``||variables(sprites):setze mySprite auf||``.
 
 ```blocks
 let mySprite: Sprite = sprites.create(img`
@@ -90,7 +90,7 @@ controller.moveSprite(mySprite, 100, 100)
 
 ## {Schritt 4}
 
-Als Nächstes erstellen wir eine Tilemap (Kachelkarte), die als Labyrinth dient. Ziehe ``||scene:set tilemap to||`` aus ``||scene:Scene||`` in den Block ``||loops:on start||``.
+Als Nächstes erstellen wir eine Tilemap (Kachelkarte), die als Labyrinth dient. Ziehe ``||scene:setze Tilemap auf||`` aus ``||scene:Szene||`` in den Block ``||loops:beim Start||``.
 Klicke auf das graue Feld, um eine Tilemap zu öffnen, wähle Kacheln (Tiles) aus und zeichne dein eigenes Labyrinth.
 Achte darauf, einen Weg vom Start zum Ende zu lassen, damit der Spieler entkommen kann.
 Lasse sowohl am Start als auch am Ziel eine leere Kachel.
@@ -150,8 +150,9 @@ tiles.setTilemap(tilemap`level_1`)
 
 ## {Schritt 6}
 
-Suche ``||scene:place mySprite on top of random||`` in ``||scene:Scene||`` und ziehe es in den Block ``||loops:on start||`` hinter ``||scene:set tilemap to||``.
-Dies verschiebt deinen Charakter auf eine der ausgewählten Kacheln; klicke auf die karierte Kachel und wähle die Kachel aus, die als Startpunkt für den Spieler dienen soll.
+Suche ``||scene:platziere mySprite auf zufällig||`` in ``||scene:Szene||`` und ziehe es in den Block ``||loops:beim Start||`` hinter ``||scene:Setze Teilmap auf||``.
+
+Dies verschiebt deinen Charakter auf eine der ausgewählten Kacheln; klicke auf die karierte Kachel und wähle die Kachel aus, die **als Startpunkt** für den Spieler dienen soll.
 
 ```blocks
 let mySprite = sprites.create(img`
@@ -178,7 +179,7 @@ tiles.placeOnRandomTile(mySprite, sprites.dungeon.stairLadder)
 
 ## {Schritt 7}
 
-Der Spieler befindet sich nun außerhalb des Bildschirms, was das Spiel etwas zu schwer macht; suche ``||scene:camera follow sprite mySprite||`` in ``||scene:Scene||`` und ziehe es an das Ende von ``||loops:on start||``.
+Der Spieler befindet sich nun außerhalb des Bildschirms, was das Spiel etwas zu schwer macht; suche ``||scene:Kamera folgt Sprite mySprite||`` in ``||scene:Szene||`` und ziehe es an das Ende von ``||loops:beim Start||``.
 Dadurch folgt die Kamera dem Charakter des Spielers bei seinen Bewegungen auf dem Bildschirm.
 
 ```blocks
@@ -207,8 +208,10 @@ scene.cameraFollowSprite(mySprite)
 
 ## {Schritt 8}
 
-Suche ``||scene:on sprite of kind player overlaps at location||`` in ``||scene:Scene||``.
-Dieses Ereignis tritt immer dann ein, wenn sich der Spieler auf einer Kachel des angegebenen Typs befindet; klicke auf das karierte Feld und ändere es zu der Kachel, die als Ziel des Labyrinths ausgewählt wurde.
+Suche ``||scene:wenn Sprite vom Typ Player überlappt bei location||`` in ``||scene:Szene||``.
+Dieses Ereignis tritt immer dann ein, wenn sich der Spieler auf einer Kachel des angegebenen Typs befindet; 
+
+klicke auf das karierte Feld und ändere es zu der Kachel, die **als Ziel** des Labyrinths ausgewählt wurde.
 
 ```blocks
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (sprite, location) {
@@ -238,8 +241,8 @@ scene.cameraFollowSprite(mySprite)
 
 ## {Schritt 9}
 
-Suche ``||game:game over lose||`` in ``||game:Game||`` und ziehe es in den Block ``||scene:on sprite of kind player overlaps at location||``.
-Klicke auf `LOSE`, um es in `WIN` zu ändern.
+Suche ``||game:Spielende||`` in ``||game:Spiel||`` und ziehe es in den Block ``||scene:wenn Sprite vom Typ Player überlappt bei location||``.
+Klicke auf `VERLIEREN`, um es in `GEWINNEN` zu ändern.
 So gewinnt der Spieler, sobald er den Ausgang berührt.
 
 ```blocks
@@ -271,7 +274,7 @@ scene.cameraFollowSprite(mySprite)
 
 ## {Schritt 10}
 
-Suche ``||info:start countdown 10 (s)||`` in ``||info:Info||`` und ziehe es in den Block ``||loops:on start||``.
+Suche ``||info:starte Coundown 10 (s)||`` in ``||info:Info||`` und ziehe es in den Block ``||loops:beim Start||``.
 
 ```blocks
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (sprite, location) {
@@ -317,15 +320,7 @@ let mySprite = sprites.create(img`
     . . 2 . . . . . . . . 2 . . . .
     . . 2 . . . 1 . . . . 2 . . . .
     . . 2 . . . . . . . . 2 . . . .
-    . . 2 2 2 . . . . . 2 2 . . . .
-    . . . . 2 2 2 2 2 2 2 . . . . .
-    . . . . . . 2 . . . . . . . . .
-    . 2 2 2 . . 2 . . . . 2 . . . .
-    . . . 2 2 2 2 2 2 2 2 2 . . . .
-    . . . . . . 2 . . . . . . . . .
-    . . . . . . 2 . . . . . . . . .
-    . . . 2 2 2 . 2 . . . . . . . .
-    . . . 2 . . . . 2 2 . . . . . .
+    . . . la lala... [omitted]
 `, SpriteKind.Player)
 controller.moveSprite(mySprite, 100, 100)
 tiles.setTilemap(tilemap`level_1`)
@@ -348,7 +343,7 @@ Herzlichen Glückwunsch, dein Labyrinth-Spiel ist fertig! Du kannst nun dein ers
     "level_0": {
         "id": "level_0",
         "mimeType": "application/mkcd-tilemap",
-        "data": "MTAxMDAwMTAwMDAxMDIwMjBjMGMxODAxMDIwYzAyMDIxODBjMDIwMjAzMGEwZjBiMGIwYjBiMDkwYjBiMGIwYjBiMGIwYjBmMTcwMDBiMGIwYjBiMGIwOTBiMGIwYjBiMGYwYjBiMGIwZDA5MGIwYjAxMGMwYzFiMGYwYjFhMDcwNzEwMGIwYjBkMGEwYjBiMDkwYjBiMGIwYjBiMGQwZjBiMDkwYjBiMDQwOTBmMGIwYTBiMGIwZjBiMGIwZDBiMGIwYTBiMGIwNDEyMGIwYjBhMGIwYjA5MGYwYjBkMGIwZjA5MGYwYjE3MGEwYjBiMDgxMDBmMDkwYjBiMGQwZjBiMTIwYjBiMGQwOTBiMGYwYjA4MDYwOTBiMGIwZDBiMGIwYTBiMGIwNDBhMGIwYjBiMGYwYjA5MGYwYjBkMGIwYjA5MGYwYjBkMGEwYjBiMGIwYjBiMDkwYjBvMGQwYjBiMDkwYjBwNDA5MGYwYjBjeDdjdzFmMGYwYjBmMjkzYjBmMGIwYjBmMGIwYjA5MGIwYjE3MGEwYjBjbTA0OTBmMGIwYjBvYjA5MGIwZjBiMGIwOTBmMGIwNDA4MDcwNzE5MDcwNjA4MDYwNzE5MDYwNjA4MDYwNzA1MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
+        "data": "MTAxMDAwMTAwMDAxMDIwMjBjMGMxODAxMDIwYzAyMDIxODBjMDIwMjAzMGEwZjBiMGIwYjBiMDkwYjBvMGQwYjBiMDkwYjBwNDA5MGYwYjBjeDdjdzFmMGYwYjBmMjkzYjBmMGIwYjBmMGIwYjA5MGIwYjE3MGEwYjBjbTA0OTBmMGIwYjBvYjA5MGIwZjBiMGIwOTBmMGIwNDA4MDcwNzE5MDcwNjA4MDYwNzE5MDYwNjA4MDYwNzA1MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
         "tileset": [
             "myTiles.transparency16",
             "sprites.dungeon.greenOuterNorthWest",
@@ -384,7 +379,7 @@ Herzlichen Glückwunsch, dein Labyrinth-Spiel ist fertig! Du kannst nun dein ers
     "level_1": {
         "id": "level_1",
         "mimeType": "application/mkcd-tilemap",
-        "data": "MTAxMDAwMTAwMDAxMDIwMjBjMGMxODAxMDIwYzAyMDIxODBjMDIwMjAzMGEwZjBiMGIwYjBiMDkwYjBiMGIwYjBiMGIwYjBmMTcxMzBiMGIwYjBiMGIwOTBiMGIwYjBiMGYwYjBiMGIwZDA5MGIwYjAxMGMwYzFiMGYwYjFhMDcwNzEwMGIwYjBkMGEwYjBiMDkwYjBiMGIwYjBiMGQwZjBiMDkwYjBiMDQwOTBmMGIwYTBiMGIwZjBiMGIwZDBiMGIwYTBiMGIwNDEyMGIwYjBhMGIwYjA5MGYwYjBkMGIwZjA5MGYwYjE3MGEwYjBiMDgxMDBmMDkwYjBiMGQwZjBiMTIwYjBiMGQwOTBvMGYwYjA4MDYwOTBiMGIwZDBiMGIwYTBiMGIwNDBhMGIwYjBiMGYwYjA5MGYwYjBkMGIwYjA5MGYwYjBkMGEwYjBvMGIwYjBiMDkwYjBvMGQwYjBiMDkwYjBpNDA5MGYwYjBjeDdjdzFmMGYwYjBmMjkzYjBmMGIwYjBmMGIwYjA5MGIwYjE3MGEwYjBjbTA0OTBmMGIwYjBvYjA5MGIwZjBiMGIwOTBmMGIwNDA4MDcwNzE5MDcwNjA4MDYwNzE5MDYwNjA4MDYwNzA1MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
+        "data": "MTAxMDAwMTAwMDAxMDIwMjBjMGMxODAxMDIwYzAyMDIxODBjMDIwMjAzMGEwZjBiMGIwYjBiMDkwYjBvMGQwYjBiMDkwYjBwNDA5MGYwYjBjeDdjdzFmMGYwYjBmMjkzYjBmMGIwYjBmMGIwYjA5MGIwYjE3MGEwYjBjbTA0OTBmMGIwYjBvYjA5MGIwZjBiMGIwOTBmMGIwNDA4MDcwNzE5MDcwNjA4MDYwNzE5MDYwNjA4MDYwNzA1MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
         "tileset": [
             "myTiles.transparency16",
             "sprites.dungeon.greenOuterNorthWest",
