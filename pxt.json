@@ -10,7 +10,8 @@
         "rockscout.md",
         "pizza.md",
         "coins.md",
-        "maze.md"
+        "maze.md",
+        "mazeorig.md"
     ],
     "testFiles": [],
     "supportedTargets": [
