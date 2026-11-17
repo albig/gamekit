@@ -11,7 +11,12 @@
         "pizza.md",
         "coins.md",
         "maze.md",
-        "mazeorig.md"
+        "mazeorig.md",
+        "mole.md",
+        "mole/mole1.md",
+        "mole/mole2.md",
+        "mole/mole3.md",
+        "mole/mole4.md"
     ],
     "testFiles": [],
     "supportedTargets": [
