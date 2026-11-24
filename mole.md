@@ -1,16 +1,16 @@
 # Whack-the-Mole
-* name: Whack-the-Mole
-* description: Create your own mole whacking carnival game. Double-click the first level to start.
-* infoUrl: educator-info/mole-map-info
-* bannerUrl: /static/mole/mole3.gif
-* backgroundurl: /static/backgrounds/mole-comp.gif
+* name: Hau den Maulwurf
+* description: Baue dein eigenes Jahrmarktspiel, bei dem du Maulwürfe triffst. Doppelklicke auf das erste Level, um zu starten.
+* infoUrl: https://arcade.makecode.com/skillmap/educator-info/mole-map-info
+* bannerUrl: https://arcade.makecode.com/static/skillmap/mole/mole3.gif
+* backgroundurl: https://arcade.makecode.com/static/skillmap/backgrounds/mole-comp.gif
 * primarycolor: #ffffff
 * secondarycolor: #fff53d
 * tertiarycolor: #82cd54
 * completednodecolor: #604c4e
 * highlightcolor: #ff0000
 * allowcodecarryover: true
-* tags: easy, beginner, carnival
+* tags: einfach, anfänger, jahrmarkt
 
 
 ## whack-the-mole
@@ -20,66 +20,65 @@
 ### mole1
 * allowcodecarryover: false
 
-* name: Mole Hunt
+* name: Maulwurf-Jagd
 * type: tutorial
-* description: Learn to use MakeCode Arcade and add a sneaky mole sprite to your project.
-* tags: easy, sprite, random
+* description: Lerne MakeCode Arcade kennen und setze einen flinken Maulwurf in dein Spiel.
+* tags: einfach, sprite, zufall
 * next: mole2
-* url: /mole/mole1
-* imageUrl: /static/mole/mole1.gif
+* url: https://github.com/albig/gamekit/mole/mole1
+* imageUrl: https://arcade.makecode.com/static/skillmap/mole/mole1.gif
 * position: -1 1
 
 
 
 ### mole2
-* name: Hammer Time
+* name: Hammerzeit
 * type: tutorial
-* description: Add a rubber hammer to tag the mole and earn points! How many points can you get before time runs out?
-* tags: easy, sprite, overlap, points
+* description: Schnapp dir einen Gummihammer, triff den Maulwurf und sammle Punkte! Wie viele schaffst du, bevor die Zeit abläuft?
+* tags: einfach, sprite, berührung, punkte
 * next: mole3
-* url: /mole/mole2
-* imageUrl: /static/mole/mole2.gif
+* url: https://github.com/albig/gamekit/mole/mole2
+* imageUrl: https://arcade.makecode.com/static/skillmap/mole/mole2.gif
 * position: 0 1
 
 
 ### mole3
-* name: Get Animated
+* name: Animation an!
 * type: tutorial
-* description: Finish your game by adding a thrilling carnival sound and real frame-by-frame animations!
-* tags: easy, clicker, sprite, buttons
+* description: Mach dein Spiel fertig – mit echtem Jahrmarkt-Sound und einer Animation Bild für Bild!
+* tags: einfach, sound, animation, schild
 * next: mole4
-* url: /mole/mole3
-* imageUrl: /static/mole/mole3.gif
+* url: https://github.com/albig/gamekit/mole/mole3
+* imageUrl: https://arcade.makecode.com/static/skillmap/mole/mole3.gif
 * position: 1 1
 
 
 
 ### mole4
-* name: Play with Friends
+* name: Spiel mit Freunden
 * type: tutorial
-* description: Want to play with friends? A few simple changes will have you playing chase in no time!
-* tags: easy, clicker, multiplayer, buttons
+* description: Lust, zu zweit zu spielen? Ein paar kleine Änderungen – und schon jagt ihr euch gegenseitig!
+* tags: einfach, mehrspieler, knöpfe
 * next: mole-cert
-* url: /mole/mole4
-* imageUrl: /static/mole/mole3.gif
+* url: https://github.com/albig/gamekit/mole/mole4
+* imageUrl: https://arcade.makecode.com/static/skillmap/mole/mole4.gif
 * position: 1 0
 
 
 ### mole-cert
-* name: Congrats!
+* name: Glückwunsch!
 * kind: completion
 * type: certificate
-* url: /static/certificates/mole-cert.pdf
-* imageUrl: /static/certificates/mole-cert.png
+* url: https://arcade.makecode.com/static/skillmap/certificates/mole-cert.pdf
+* imageUrl: https://arcade.makecode.com/static/skillmap/certificates/mole-cert.png
 * showMultiplayerShare: true
 * position: 2 0
 * actions:
-    * map: [Try Burstin' Balloons](/balloon)
-    * editor: [Open in Creative Mode](/)
+    * editor: [Im Kreativmodus öffnen](/)
 * rewards:
     * certificate:
-        * url: /static/certificates/mole-cert.pdf
-        * preview: /static/certificates/mole-cert.png
+        * url: https://arcade.makecode.com/static/skillmap/certificates/mole-cert.pdf
+        * preview: https://arcade.makecode.com/static/skillmap/certificates/mole-cert.png
     * completion-badge:
-        * image: /static/badges/badge-mole.png
-        * name: Whack-the-Mole
+        * image: https://arcade.makecode.com/static/badges/badge-mole.png
+        * name: Hau den Maulwurf
